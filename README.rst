@@ -62,6 +62,6 @@ There is some information online, but a lot of it is confusing or out of date.
 3. Download java if needed (same link)
 4. Open command promt at folder with the mrl jar file and run ``java -jar myRobotLab.jar``
 5. This will start mrl. go to the runtime tab and click ``system\install all``
-6. You can then load and run a python script. note the ports defined in the script will likely have to be changed if the computer is different. 
+6. You can then load and run a python script. Note: the ports defined in the script will likely have to be changed if the computer is different. 
 
-If the arduino has not had the mrlComm firmware flashed, it can be found in the mrl directory: ``.mrl/resource/Arduino/MRLComm/``. flash it the same as you would any other arduino file.
+The Arduino firmware can be found in the mrl directory: ``./mrl/resource/Arduino/MRLComm/``. Flash it the same as you would any other Arduino file.
