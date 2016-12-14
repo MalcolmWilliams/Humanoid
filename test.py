@@ -42,8 +42,9 @@ i01.startEar()
 
 
 
-# Change to the port that you use
+# Change to the port that you use #this will need to be updated whenever you switch from linux to windows.
 rightPort = "COM6"
+leftPort = "COM5"
 
 i01.startRightHand(rightPort)
 i01.startRightArm(rightPort)
@@ -85,20 +86,19 @@ ear.startListening()
 
 
 def armUp():
-	i01.moveArm("right", 80, 120, 120, 60)
-	
+	i01.moveArm("right", 90, 90, 150, 90)
 	i01.mouth.speak("arm up")
 
 def armDown():
-	i01.moveArm("right", 10, 60, 60, 10)
+	i01.moveArm("right", 20, 90, 90, 90)
 	i01.mouth.speak("arm down")
 
 def handOpen():
-  i01.moveHand("right",170,150,170,10,30)
+  i01.moveHand("right",170,160,170,10,20)
   i01.mouth.speak("ok I open my finger")
 
 def handClose():
-  i01.moveHand("right",10,10,10,170,170)
+  i01.moveHand("right",10,0,10,170,160)
   i01.mouth.speak("my finger is closed")
 
 def handMiddle():
