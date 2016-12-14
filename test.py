@@ -1,20 +1,3 @@
-'''
-this is a simple test document to show how to get started with MyRobotLab (mrl)
-
-Installation procedure.
-There is some information online, but a lot of it is confusing or out of date. Note that most of these steps can be skipped because it will already be setup. 
-1. Download the mrl jar file. (http://myrobotlab.org/download)
-2. Download java if needed (same link)
-3. Open command promt at folder with the mrl jar file and run ``java -jar myRobotLab.jar``
-4. This will start mrl. go to the runtime tab and click ``system\install all``
-5. you can then load and run a python script. note the ports defined in the script will likely have to be changed if the computer is different. 
-
-if the arduino has not had the mrlComm firmware flashed, it can be found in the mrl directory: ``.\resource\Arduino\MRLComm``. flash it the same as you would any other arduino file.
-'''
-
-
-
-
 # this will run with versions of MRL above 1695
 # a very minimal script for InMoov
 # although this script is very short you can still
@@ -52,11 +35,23 @@ i01.setHandSpeed("right", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0)
 i01.setArmSpeed("right", 1.0, 1.0, 1.0, 1.0)
 
 
-
+'''depreciated accapela speech
 # starting parts
 i01.startMouth()
 #to tweak the default voice
 i01.mouth.setVoice("Ryan")
+'''
+
+#to tweak the default voice
+Voice="cmu-slt-hsmm" # Default female for MarySpeech 
+#Voice="cmu-bdl" #Male US voice.You need to add the necessary file.jar to myrobotlab.1.0.XXXX/library/jar
+#https://github.com/MyRobotLab/pyrobotlab/blob/ff6e2cef4d0642e47ee15e353ef934ac6701e713/home/hairygael/voice-cmu-bdl-5.2.jar
+voiceType = Voice
+mouth = Runtime.createAndStart("i01.mouth", "MarySpeech")
+mouth.setVoice(voiceType)
+
+
+
 ##############
 
 # verbal commands
