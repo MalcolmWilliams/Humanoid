@@ -16,8 +16,31 @@ webgui.startBrowser("http://localhost:8888/#/service/i01.ear")
 # As an alternative you can use the line below to show all services in the browser. In that case you should comment out all lines above that starts with webgui. 
 # webgui = Runtime.createAndStart("webgui","WebGui")
 
+
+'''
+depreciated accapela speech
+# starting parts
+i01.startMouth()
+#to tweak the default voice
+i01.mouth.setVoice("Ryan")
+'''
+
+#to tweak the default voice
+#Voice="cmu-slt-hsmm" # Default female for MarySpeech 
+#Voice="cmu-bdl" #Male US voice.You need to add the necessary file.jar to myrobotlab.1.0.XXXX/library/jar
+#Voice ="upmc-pierre-hsmm"
+#https://github.com/MyRobotLab/pyrobotlab/blob/ff6e2cef4d0642e47ee15e353ef934ac6701e713/home/hairygael/voice-cmu-bdl-5.2.jar
+#voiceType = Voice
+#mouth = Runtime.createAndStart("i01.mouth", "MarySpeech")
+#mouth.setVoice(voiceType)
+
+
+
+
+
 i01 = Runtime.createAndStart("i01", "InMoov")
 i01.startEar()
+#i01.startMouth()
 
 # Change to the port that you use #this will need to be updated whenever you switch from linux to windows.
 rightPort = "COM6"
@@ -52,21 +75,7 @@ i01.setHandSpeed("right", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0)
 i01.setArmSpeed("right", 1.0, 1.0, 1.0, 1.0)
 #i01.setArmSpeed("left", 1.0, 1.0, 1.0, 1.0)
 
-'''
-depreciated accapela speech
-# starting parts
-i01.startMouth()
-#to tweak the default voice
-i01.mouth.setVoice("Ryan")
-'''
 
-#to tweak the default voice
-Voice="cmu-slt-hsmm" # Default female for MarySpeech 
-#Voice="cmu-bdl" #Male US voice.You need to add the necessary file.jar to myrobotlab.1.0.XXXX/library/jar
-#https://github.com/MyRobotLab/pyrobotlab/blob/ff6e2cef4d0642e47ee15e353ef934ac6701e713/home/hairygael/voice-cmu-bdl-5.2.jar
-voiceType = Voice
-mouth = Runtime.createAndStart("i01.mouth", "MarySpeech")
-mouth.setVoice(voiceType)
 
 ##############
 
@@ -97,28 +106,28 @@ ear.startListening()
 def armUp():
 	i01.moveArm("right", 90, 90, 150, 90)
 	#i01.moveArm("left", 90, 90, 150, 95)
-	mouth.speak("i'm going to raise my arm")
+	#mouth.speak("i'm going to raise my arm")
 
 def armDown():
 	i01.moveArm("right", 20, 90, 90, 90)
 	#i01.moveArm("left", 20, 90, 90, 95)
-	mouth.speak("I'm going to lower my arm")
+	#mouth.speak("I'm going to lower my arm")
 
 def handOpen():
 	i01.moveHand("right", 180, 180, 180, 180, 180)
-	mouth.speak("ok I will open my hand")
+	#mouth.speak("ok I will open my hand")
 
 def handClose():
   i01.moveHand("right",0,0,0,0,0)
-  mouth.speak("my hand is closed")
+  #mouth.speak("my hand is closed")
 
 def handMiddle():
   i01.moveHand("right",90,90,90,90,90)
-  mouth.speak("ok you have my attention")
+  #mouth.speak("ok you have my attention")
 
 def middleFinger():
 	i01.moveHand("right", 0, 0, 180, 0, 0)
-	mouth.speak("fuck! you!")
+	#mouth.speak("fuck! you!")
 
 '''
 def handOpen():
