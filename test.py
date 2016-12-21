@@ -3,7 +3,8 @@ RIGHT_HAND = True
 RIGHT_ARM  = True
 LEFT_HAND  = False
 LEFT_ARM   = True
-SPEECH = False
+SPEECH     = False
+
 # It uses WebkitSpeechRecognition, so you need to use Chrome as your default browser for this script to work
 # Start the webgui service without starting the browser
 webgui = Runtime.create("WebGui","WebGui")
@@ -25,7 +26,6 @@ if(SPEECH):
 	mouth = Runtime.createAndStart("i01.mouth", "MarySpeech")
 	mouth.setVoice(voiceType)
 
-
 i01 = Runtime.createAndStart("i01", "InMoov")
 i01.startEar()
 if(SPEECH): i01.startMouth()	#disabled because speech is not working
@@ -33,8 +33,6 @@ if(SPEECH): i01.startMouth()	#disabled because speech is not working
 # Change to the port that you use, this might need to be updated whenever you switch computers.
 rightPort = "COM6"
 leftPort = "COM5"
-
-
 
 if(RIGHT_HAND):
 	i01.startRightHand(rightPort)
@@ -85,9 +83,6 @@ if(LEFT_HAND):
 	#TODO: make left hand.
 
 
-
-##############
-
 # verbal commands
 ear = i01.ear
 
@@ -117,7 +112,7 @@ ear.startListening()
 def armUp():
   if(RIGHT_ARM): i01.moveArm("right", 90, 90, 150, 90)
   if (LEFT_ARM): i01.moveArm("left", 90, 90, 150, 150)
-  if (SPEECH): mouth.speak("i'm going to raise my arm")
+  if (SPEECH): mouth.speak("I'm going to raise my arm")
 
 def armDown():
   if(RIGHT_ARM): i01.moveArm("right", 20, 90, 90, 90)
@@ -126,11 +121,11 @@ def armDown():
 
 def handOpen():
   if(RIGHT_HAND): i01.moveHand("right", 180, 180, 180, 180, 180)
-  if(SPEECH): mouth.speak("ok I will open my hand")
+  if(SPEECH): mouth.speak("I will open my hand")
 
 def handClose():
   if(RIGHT_HAND): i01.moveHand("right",0,0,0,0,0)
-  if(SPEECH): mouth.speak("my hand is closed")
+  if(SPEECH): mouth.speak("My hand is closed")
 
 def handMiddle():
   if(RIGHT_HAND): i01.moveHand("right",90,90,90,90,90)
@@ -138,4 +133,4 @@ def handMiddle():
 
 def middleFinger():
   if(RIGHT_HAND): i01.moveHand("right", 0, 0, 180, 0, 0)
-  if(SPEECH): mouth.speak("fuck! you!")
+  if(SPEECH): mouth.speak("Fuck! You!")
