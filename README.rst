@@ -9,6 +9,7 @@ Hardware
 1. The hardware build instructions can be found on the inmoov website: http://inmoov.fr/
 2. There are some useful user designed parts here: http://www.thingiverse.com/Gael_Langevin/collections/inmoov-parts-and-derivatives/
 3. Parts I used/made are located in the CAD folder of this repo.
+4. The filaments used were `white <https://www.amazon.com/dp/B01EKFV60S/ref=twister_B01EKFV2F2?_encoding=UTF8&th=1>`_ and `black <https://www.amazon.com/dp/B01EKFV4RS/ref=twister_B01EKFV2F2?_encoding=UTF8&psc=1>`_
 
 
 Default Servo Mapping and Limits
