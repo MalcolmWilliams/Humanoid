@@ -31,8 +31,8 @@ i01.startEar()
 if(SPEECH): i01.startMouth()	#disabled because speech is not working
 
 # Change to the port that you use, this might need to be updated whenever you switch computers.
-rightPort = "COM6"
-leftPort = "COM5"
+rightPort = "COM5"
+leftPort = "COM6"
 
 if(RIGHT_HAND):
 	i01.startRightHand(rightPort)
@@ -97,11 +97,11 @@ ear.addCommand("voice control", ear.getName(), "clearLock")
 #custom gestures
 ear.addCommand("open your hand", "python", "handOpen")
 ear.addCommand("close your hand", "python", "handClose")
-ear.addCommand("hand to the middle", "python", "handMiddle")
+ear.addCommand("put your hand at rest", "python", "handMiddle")
 ear.addCommand("give the middle finger", "python", "middleFinger")
-ear.addCommand("raise your arms", "python", "armUp")
-ear.addCommand("lower your arms", "python", "armDown")
-
+ear.addCommand("raise your arm", "python", "armUp")
+ear.addCommand("lower your arm", "python", "armDown")
+ear.addCommand("raise your right arm", "python", "armRightUp")
 # Confirmations and Negations are not supported yet in WebkitSpeechRecognition
 # So commands will execute immediatley 
 ear.addComfirmations("yes","correct","yeah","ya") 
@@ -114,17 +114,22 @@ def armUp():
   if (LEFT_ARM): i01.moveArm("left", 90, 90, 150, 150)
   if (SPEECH): mouth.speak("I'm going to raise my arm")
 
+def armRightUp():
+  if(RIGHT_ARM): i01.moveArm("right", 90, 90, 150, 90)
+  #if (LEFT_ARM): i01.moveArm("left", 90, 90, 150, 150)
+  if (SPEECH): mouth.speak("I'm going to raise my arm")
+
 def armDown():
   if(RIGHT_ARM): i01.moveArm("right", 20, 90, 90, 90)
   if(LEFT_ARM): i01.moveArm("left", 20, 90, 90, 95)
   if(SPEECH): mouth.speak("I'm going to lower my arm")
 
 def handOpen():
-  if(RIGHT_HAND): i01.moveHand("right", 180, 180, 180, 180, 180)
+  if(RIGHT_HAND): i01.moveHand("right", 160, 160, 160, 160, 160)
   if(SPEECH): mouth.speak("I will open my hand")
 
 def handClose():
-  if(RIGHT_HAND): i01.moveHand("right",0,0,0,0,0)
+  if(RIGHT_HAND): i01.moveHand("right",0,20,0,0,0)
   if(SPEECH): mouth.speak("My hand is closed")
 
 def handMiddle():
@@ -132,5 +137,5 @@ def handMiddle():
   if(SPEECH): mouth.speak("ok you have my attention")
 
 def middleFinger():
-  if(RIGHT_HAND): i01.moveHand("right", 0, 0, 180, 0, 0)
+  if(RIGHT_HAND): i01.moveHand("right", 0, 20, 160, 0, 0)
   if(SPEECH): mouth.speak("Fuck! You!")
